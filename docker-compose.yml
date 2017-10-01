@@ -26,6 +26,7 @@ services:
     env_file:
       - sg-es-master-0.env
     environment:
+      - http_proxy
       - sgadmin
 
   es-data-0:
@@ -53,77 +54,89 @@ services:
 
     env_file:
       - sg-es-data-0.env
+    environment:
+      - http_proxy
 
   rabbit1:
     container_name: rabbit1
-    build:
-      context: ./rabbitmq
-    environment:
-      - ERLANG_COOKIE='LLC Graphie'
+    hostname: rabbit1
     networks:
       elknet:
         aliases:
           - rabbit
-    hostname: rabbit1
-    image: rabbit1
     ports:
       - 15672:15672
       - 5672:5672
+
+    build:
+      context: ./rabbitmq
     volumes:
       - rabbit1:/var/lib/rabbitmq
       - ./rabbitmq/conf/:/etc/rabbitmq/
 
+    environment:
+      - ERLANG_COOKIE='LLC Graphie'
+      - http_proxy
+
   rabbit2:
     container_name: rabbit2
+    hostname: rabbit2
+    networks:
+      - elknet
+    ports:
+      - 15673:15672
+      - 5673:5672
+    depends_on:
+      - rabbit1
+
     build:
       context: ./rabbitmq
+    volumes:
+      - rabbit2:/var/lib/rabbitmq
+      - ./rabbitmq/conf/:/etc/rabbitmq/
+
     environment:
       - ERLANG_COOKIE='LLC Graphie'
       - CLUSTER_WITH=rabbit1
       - ENABLE_RAM=true
       - RAM_NODE=true
-    networks:
-      - elknet
-    hostname: rabbit2
-    depends_on:
-      - rabbit1
-    image: rabbit2
-    ports:
-      - 15673:15672
-      - 5673:5672
-    volumes:
-      - rabbit2:/var/lib/rabbitmq
-      - ./rabbitmq/conf/:/etc/rabbitmq/
+      - http_proxy
 
   lsi:
     container_name: lsi
-    build:
-      context: ./logstash
     hostname: logstash_input
-    image: logstash_input
-    depends_on:
-      - es-master-0
     networks:
       - elknet
+    ports:
+      - 443:443/udp
+    depends_on:
+      - es-master-0
+
+    build:
+      context: ./logstash
     volumes:
       - lsi:/usr/share/logstash/logs
       - ./logstash/pipelinei/:/usr/share/logstash/pipeline/
-    ports:
-      - 443:443/udp
+
+    environment:
+      - http_proxy
 
   lst:
     container_name: lst
-    build:
-      context: ./logstash
     hostname: logstash_transform
-    image: logstash_transform
-    depends_on:
-      - es-master-0
     networks:
       - elknet
+    depends_on:
+      - es-master-0
+
+    build:
+      context: ./logstash
     volumes:
       - lst:/usr/share/logstash/logs
       - ./logstash/pipelinet/:/usr/share/logstash/pipeline/
+
+    environment:
+      - http_proxy
 
 volumes:
   es-master-0:
