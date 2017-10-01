@@ -1,0 +1,91 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: md5WithRSAEncryption
+        Issuer: C=RU, ST=Moscow, L=Moscow, O=Graphie, O=LLC Graphie, OU=IT-company, CN=www.phie.ru/emailAddress=help@phie.ru
+        Validity
+            Not Before: Oct  1 13:56:29 2017 GMT
+            Not After : Oct  1 13:56:29 2018 GMT
+        Subject: C=RU, ST=Moscow, L=Moscow, O=Graphie, O=Graphie, OU=IT-company, CN=admin
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:e5:9e:90:87:b7:f1:a8:fc:c0:eb:6d:e6:27:c7:
+                    55:74:44:c5:fe:83:11:b6:3a:f2:f9:c6:6e:0e:04:
+                    59:8b:40:b5:8d:9d:4c:98:8a:7d:b2:89:14:9e:ba:
+                    a2:ee:19:6a:8f:02:d6:3c:d2:30:49:98:01:e0:7e:
+                    c7:e3:ba:f8:57:c5:63:8b:33:2e:ad:a4:e3:bd:3a:
+                    b2:13:14:80:9a:c7:4f:e7:de:4f:fe:2d:ef:00:ac:
+                    75:a5:97:e3:ae:f2:de:f2:f9:82:de:da:e5:e6:52:
+                    61:e9:3c:fd:57:4b:b8:03:88:82:9e:b0:be:a7:74:
+                    2a:34:47:c9:6d:8d:96:fe:b4:c4:d7:47:7c:3a:c6:
+                    04:b9:26:b1:e1:43:f3:85:47:cf:c9:a0:cc:2c:25:
+                    73:e6:19:c4:cb:8c:2b:ec:fc:c5:c0:7c:c3:6f:a6:
+                    1f:41:f3:55:ec:99:3f:b6:c6:08:21:64:1a:da:75:
+                    c4:b8:d4:7a:a4:02:4b:6d:27:67:bc:a7:58:82:f0:
+                    ff:52:86:65:55:c4:e2:9c:b4:7b:d0:38:22:34:24:
+                    79:83:48:ac:b9:15:cf:4e:23:b1:6d:09:00:c0:e1:
+                    54:71:81:d9:0d:54:9e:a4:8c:3d:16:a1:f0:ff:6b:
+                    8a:6d:56:fe:79:cd:d4:27:9f:0e:d8:af:ce:65:8f:
+                    fe:2b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                99:08:59:9E:AF:C0:F8:21:30:D5:3C:9B:9D:D8:0E:88:D5:0B:A9:CB
+            X509v3 Authority Key Identifier: 
+                keyid:23:DF:98:DA:CB:23:3D:CA:03:FF:9E:61:78:66:72:52:3C:15:B2:1D
+                DirName:/C=RU/ST=Moscow/L=Moscow/O=Graphie/O=LLC Graphie/OU=IT-company/CN=www.phie.ru/emailAddress=help@phie.ru
+                serial:E2:EF:C1:24:79:03:5A:67
+
+            X509v3 Subject Alternative Name: 
+                Registered ID:1.2.3.4.5.5
+    Signature Algorithm: md5WithRSAEncryption
+         32:fb:a3:e1:af:f1:65:47:19:ad:e0:f4:02:d1:da:f4:69:ae:
+         37:d6:02:9b:09:21:51:42:42:6c:cf:fa:55:c1:0b:42:c0:90:
+         62:fa:fe:b3:8e:7d:23:4a:41:19:01:48:7e:93:d3:08:b6:f6:
+         b4:e8:09:ac:58:ef:84:9e:a5:5e:1f:77:0c:0d:0b:3f:8b:db:
+         55:2b:f9:8e:c1:9b:5e:de:5c:fb:33:45:15:00:f5:c3:18:7f:
+         6c:f6:2f:6a:2c:43:f6:22:8c:fa:6f:7b:a9:fd:4b:34:64:fc:
+         de:ff:5f:71:7c:e7:74:71:e1:98:34:ae:e8:4b:6f:22:8b:ae:
+         37:1c:c7:af:7e:99:66:71:0b:bf:66:cb:ef:97:d4:27:e3:28:
+         2e:eb:91:9e:28:f0:eb:c5:bb:b1:66:a2:54:36:cd:b7:ee:21:
+         f9:9a:4f:fd:8f:52:72:bf:a0:d6:36:73:51:e3:6d:ef:d0:23:
+         4c:ae:82:d8:86:ca:f4:a9:bf:d2:cf:b2:f8:7a:37:c1:79:04:
+         ca:3f:9a:6b:08:b6:9e:da:9b:30:6c:0f:ca:33:b8:a0:45:c5:
+         d6:3f:10:4a:23:ac:8d:d2:ca:e1:c2:23:b0:c0:27:36:ea:17:
+         0c:71:39:ff:a5:70:9f:25:15:91:bf:2c:e7:4c:0b:8d:ed:13:
+         16:f6:c0:3e
+-----BEGIN CERTIFICATE-----
+MIIE2jCCA8KgAwIBAgIBATANBgkqhkiG9w0BAQQFADCBnzELMAkGA1UEBhMCUlUx
+DzANBgNVBAgTBk1vc2NvdzEPMA0GA1UEBxMGTW9zY293MRAwDgYDVQQKEwdHcmFw
+aGllMRQwEgYDVQQKEwtMTEMgR3JhcGhpZTETMBEGA1UECxMKSVQtY29tcGFueTEU
+MBIGA1UEAxMLd3d3LnBoaWUucnUxGzAZBgkqhkiG9w0BCQEWDGhlbHBAcGhpZS5y
+dTAeFw0xNzEwMDExMzU2MjlaFw0xODEwMDExMzU2MjlaMHgxCzAJBgNVBAYTAlJV
+MQ8wDQYDVQQIEwZNb3Njb3cxDzANBgNVBAcTBk1vc2NvdzEQMA4GA1UEChMHR3Jh
+cGhpZTEQMA4GA1UEChMHR3JhcGhpZTETMBEGA1UECxMKSVQtY29tcGFueTEOMAwG
+A1UEAxMFYWRtaW4wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDlnpCH
+t/Go/MDrbeYnx1V0RMX+gxG2OvL5xm4OBFmLQLWNnUyYin2yiRSeuqLuGWqPAtY8
+0jBJmAHgfsfjuvhXxWOLMy6tpOO9OrITFICax0/n3k/+Le8ArHWll+Ou8t7y+YLe
+2uXmUmHpPP1XS7gDiIKesL6ndCo0R8ltjZb+tMTXR3w6xgS5JrHhQ/OFR8/JoMws
+JXPmGcTLjCvs/MXAfMNvph9B81XsmT+2xgghZBradcS41HqkAkttJ2e8p1iC8P9S
+hmVVxOKctHvQOCI0JHmDSKy5Fc9OI7FtCQDA4VRxgdkNVJ6kjD0WofD/a4ptVv55
+zdQnnw7Yr85lj/4rAgMBAAGjggFFMIIBQTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIB
+DQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUmQhZ
+nq/A+CEw1TybndgOiNULqcswgdQGA1UdIwSBzDCByYAUI9+Y2ssjPcoD/55heGZy
+UjwVsh2hgaWkgaIwgZ8xCzAJBgNVBAYTAlJVMQ8wDQYDVQQIEwZNb3Njb3cxDzAN
+BgNVBAcTBk1vc2NvdzEQMA4GA1UEChMHR3JhcGhpZTEUMBIGA1UEChMLTExDIEdy
+YXBoaWUxEzARBgNVBAsTCklULWNvbXBhbnkxFDASBgNVBAMTC3d3dy5waGllLnJ1
+MRswGQYJKoZIhvcNAQkBFgxoZWxwQHBoaWUucnWCCQDi78EkeQNaZzAQBgNVHREE
+CTAHiAUqAwQFBTANBgkqhkiG9w0BAQQFAAOCAQEAMvuj4a/xZUcZreD0AtHa9Gmu
+N9YCmwkhUUJCbM/6VcELQsCQYvr+s459I0pBGQFIfpPTCLb2tOgJrFjvhJ6lXh93
+DA0LP4vbVSv5jsGbXt5c+zNFFQD1wxh/bPYvaixD9iKM+m97qf1LNGT83v9fcXzn
+dHHhmDSu6EtvIouuNxzHr36ZZnELv2bL75fUJ+MoLuuRnijw68W7sWaiVDbNt+4h
++ZpP/Y9Scr+g1jZzUeNt79AjTK6C2IbK9Km/0s+y+Ho3wXkEyj+aawi2ntqbMGwP
+yjO4oEXF1j8QSiOsjdLK4cIjsMAnNuoXDHE5/6VwnyUVkb8s50wLje0TFvbAPg==
+-----END CERTIFICATE-----

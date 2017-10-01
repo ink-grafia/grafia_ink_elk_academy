@@ -1,0 +1,144 @@
+version: '3'
+services:
+  es-master-0:
+    container_name: es-master-0
+    hostname: es-master-0
+    networks:
+      elknet:
+        aliases:
+          - es-master-0.example.com
+    ports:
+      - 9200:9200
+
+    build:
+      context: ./elasticsearch
+      args:
+        elkver: 5.5.1
+        sgver: 5.5.1-16
+    volumes:
+      - es-master-0:/usr/share/elasticsearch/data
+    privileged: true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+    env_file:
+      - sg-es-master-0.env
+    environment:
+      - sgadmin
+
+  es-data-0:
+    container_name: es-data-0
+    hostname: es-data-0
+    networks:
+      elknet:
+        aliases:
+          - es-data-0.example.com
+    depends_on:
+      - es-master-0
+
+    build:
+      context: ./elasticsearch
+      args:
+        elkver: 5.5.1
+        sgver: 5.5.1-16
+    volumes:
+      - es-data-0:/usr/share/elasticsearch/data
+    privileged: true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+    env_file:
+      - sg-es-data-0.env
+
+  rabbit1:
+    container_name: rabbit1
+    build:
+      context: ./rabbitmq
+    environment:
+      - ERLANG_COOKIE='LLC Graphie'
+    networks:
+      elknet:
+        aliases:
+          - rabbit
+    hostname: rabbit1
+    image: rabbit1
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - rabbit1:/var/lib/rabbitmq
+      - ./rabbitmq/conf/:/etc/rabbitmq/
+
+  rabbit2:
+    container_name: rabbit2
+    build:
+      context: ./rabbitmq
+    environment:
+      - ERLANG_COOKIE='LLC Graphie'
+      - CLUSTER_WITH=rabbit1
+      - ENABLE_RAM=true
+      - RAM_NODE=true
+    networks:
+      - elknet
+    hostname: rabbit2
+    depends_on:
+      - rabbit1
+    image: rabbit2
+    ports:
+      - 15673:15672
+      - 5673:5672
+    volumes:
+      - rabbit2:/var/lib/rabbitmq
+      - ./rabbitmq/conf/:/etc/rabbitmq/
+
+  lsi:
+    container_name: lsi
+    build:
+      context: ./logstash
+    hostname: logstash_input
+    image: logstash_input
+    depends_on:
+      - es-master-0
+    networks:
+      - elknet
+    volumes:
+      - lsi:/usr/share/logstash/logs
+      - ./logstash/pipelinei/:/usr/share/logstash/pipeline/
+    ports:
+      - 443:443/udp
+
+  lst:
+    container_name: lst
+    build:
+      context: ./logstash
+    hostname: logstash_transform
+    image: logstash_transform
+    depends_on:
+      - es-master-0
+    networks:
+      - elknet
+    volumes:
+      - lst:/usr/share/logstash/logs
+      - ./logstash/pipelinet/:/usr/share/logstash/pipeline/
+
+volumes:
+  es-master-0:
+    driver: local
+  es-data-0:
+    driver: local
+  rabbit1:
+    driver: local
+  rabbit2:
+    driver: local
+  lsi:
+    driver: local
+  lst:
+    driver: local
+
+networks:
+  elknet:
+    driver: bridge
