@@ -13,8 +13,9 @@ services:
     build:
       context: ./elasticsearch
       args:
-        elkver: 5.5.1
-        sgver: 5.5.1-16
+        - elkver=5.5.1
+        - sgver=5.5.1-16
+        - http_proxy
     volumes:
       - es-master-0:/usr/share/elasticsearch/data
     privileged: true
@@ -42,8 +43,9 @@ services:
     build:
       context: ./elasticsearch
       args:
-        elkver: 5.5.1
-        sgver: 5.5.1-16
+        - elkver=5.5.1
+        - sgver=5.5.1-16
+        - http_proxy
     volumes:
       - es-data-0:/usr/share/elasticsearch/data
     privileged: true
@@ -70,6 +72,8 @@ services:
 
     build:
       context: ./rabbitmq
+      args:
+        - http_proxy
     volumes:
       - rabbit1:/var/lib/rabbitmq
       - ./rabbitmq/conf/:/etc/rabbitmq/
@@ -91,6 +95,8 @@ services:
 
     build:
       context: ./rabbitmq
+      args:
+        - http_proxy
     volumes:
       - rabbit2:/var/lib/rabbitmq
       - ./rabbitmq/conf/:/etc/rabbitmq/
@@ -114,6 +120,8 @@ services:
 
     build:
       context: ./logstash
+      args:
+        - http_proxy
     volumes:
       - lsi:/usr/share/logstash/logs
       - ./logstash/pipelinei/:/usr/share/logstash/pipeline/
@@ -131,12 +139,11 @@ services:
 
     build:
       context: ./logstash
+      args:
+        - http_proxy
     volumes:
       - lst:/usr/share/logstash/logs
       - ./logstash/pipelinet/:/usr/share/logstash/pipeline/
-
-    environment:
-      - http_proxy
 
 volumes:
   es-master-0:
