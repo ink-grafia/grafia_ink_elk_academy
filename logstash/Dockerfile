@@ -2,6 +2,7 @@ FROM centos:7
 
 ARG http_proxy=""
 ENV http_proxy $http_proxy
+ENV https_proxy $http_proxy
 
 RUN yum update -y && yum install -y java-1.8.0-openjdk-devel which && \
     yum clean all
@@ -35,6 +36,7 @@ ADD bin/docker-entrypoint env2yaml/env2yaml /usr/local/bin/
 RUN chmod 0755 /usr/local/bin/docker-entrypoint /usr/local/bin/env2yaml
 
 ENV http_proxy ""
+ENV https_proxy ""
 
 EXPOSE 9600 5044
 
