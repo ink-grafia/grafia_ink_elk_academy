@@ -14,6 +14,7 @@ else
   rabbitmqctl stop_app
 
   echo "Joining cluster $CLUSTER_WITH"
+  sleep 5s
   rabbitmqctl join_cluster ${ENABLE_RAM:+--ram} $RABBITMQ_NODENAME@$CLUSTER_WITH
 
   rabbitmqctl start_app
