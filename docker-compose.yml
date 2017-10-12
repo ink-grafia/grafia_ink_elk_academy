@@ -10,12 +10,7 @@ services:
     ports:
       - 9200:9200
 
-    build:
-      context: ./elasticsearch
-      args:
-        - elkver=5.5.1
-        - sgver=5.5.1-16
-        - http_proxy
+    image: graphie/elastic-demo:0.0.1
     volumes:
       - es-master-0:/usr/share/elasticsearch/data
     privileged: true
@@ -40,12 +35,7 @@ services:
     depends_on:
       - es-master-0
 
-    build:
-      context: ./elasticsearch
-      args:
-        - elkver=5.5.1
-        - sgver=5.5.1-16
-        - http_proxy
+    image: graphie/elastic-demo:0.0.1
     volumes:
       - es-data-0:/usr/share/elasticsearch/data
     privileged: true
@@ -70,10 +60,7 @@ services:
       - 15672:15672
       - 5672:5672
 
-    build:
-      context: ./rabbitmq
-      args:
-        - http_proxy
+    image: graphie/rabbitmq-demo:0.0.1
     volumes:
       - rabbit1:/var/lib/rabbitmq
       - ./rabbitmq/conf/:/etc/rabbitmq/
@@ -93,10 +80,7 @@ services:
     depends_on:
       - rabbit1
 
-    build:
-      context: ./rabbitmq
-      args:
-        - http_proxy
+    image: graphie/rabbitmq-demo:0.0.1
     volumes:
       - rabbit2:/var/lib/rabbitmq
       - ./rabbitmq/conf/:/etc/rabbitmq/
@@ -118,10 +102,7 @@ services:
     depends_on:
       - es-master-0
 
-    build:
-      context: ./logstash
-      args:
-        - http_proxy
+    image: graphie/logstash-demo:0.0.1
     volumes:
       - lsi:/usr/share/logstash/logs
       - ./logstash/pipelinei/:/usr/share/logstash/pipeline/
@@ -137,10 +118,7 @@ services:
     depends_on:
       - es-master-0
 
-    build:
-      context: ./logstash
-      args:
-        - http_proxy
+    image: graphie/logstash-demo:0.0.1
     volumes:
       - lst:/usr/share/logstash/logs
       - ./logstash/pipelinet/:/usr/share/logstash/pipeline/
