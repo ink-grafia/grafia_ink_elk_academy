@@ -1,0 +1,3 @@
+[submodule "kibana"]
+	path = kibana
+	url = git@github.phie.com:graphie/deep_phie.git
